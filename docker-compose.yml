@@ -1,0 +1,30 @@
+version: '3'
+services:
+  sync:
+    build: ./sync
+    environment:
+      RSYNC_SERVER: rsync.opensuse.org
+      RSYNC_MODULE: opensuse-full-with-factory
+      RSYNC_USER: opensuse
+      RSYNC_PASSWORD:
+    volumes:
+      - ./rsync-clone/rsync-test.txt:/etc/rsync-include.txt
+      - opensuse:/srv/pub/opensuse/
+  info:
+    build: ./info
+    ports:
+      - "8873:873"
+    volumes:
+      - opensuse:/srv/pub/opensuse/
+  download:
+    build: ./download
+    ports:
+      - "8080:80"
+      - "8083:443"
+    volumes:
+      # - ./download/fancyindex:/srv/www/fancyindex
+      - opensuse:/srv/pub/opensuse/
+
+volumes:
+  opensuse:
+    external: true

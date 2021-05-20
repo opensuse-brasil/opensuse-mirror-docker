@@ -50,6 +50,12 @@ The mirror password to authenticate (stage mirror only).
 
 Default: **Not Set**
 
+### RSYNC_CHOWN
+
+The `user:group` that will own the files.
+
+Default: `1000:1000`
+
 ## Volumes
 
 ### /srv/pub/opensuse

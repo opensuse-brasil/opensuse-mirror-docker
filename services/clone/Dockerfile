@@ -6,20 +6,15 @@ ENV RSYNC_SERVER="rsync.opensuse.org"
 ENV RSYNC_MODULE="opensuse-full-with-factory"
 ENV RSYNC_USER="opensuse"
 ENV RSYNC_PASSWORD=""
-
-RUN groupadd mirror
-RUN useradd -m -g mirror -c "openSUSE Mirror User" -s /bin/bash mirror
+ENV RSYNC_CHOWN="1000:1000"
 
 RUN mkdir -p /srv/pub/opensuse
-RUN chown -R mirror:mirror /srv/pub/opensuse
 
 VOLUME ["/srv/pub/opensuse", "/var/log/"]
 
 STOPSIGNAL SIGTERM
 
 RUN ln -sf /dev/stdout /var/log/rsync.log
-
-USER mirror:mirror
 
 CMD rsync -rlpt ${RSYNC_USER}@${RSYNC_SERVER}::${RSYNC_MODULE}/opensuse/ /srv/pub/opensuse/ \
           --include-from=/etc/rsync-include.txt \
@@ -28,4 +23,7 @@ CMD rsync -rlpt ${RSYNC_USER}@${RSYNC_SERVER}::${RSYNC_MODULE}/opensuse/ /srv/pu
           --max-delete=4000 \
           --timeout=1800 \
           --log-file=/var/log/rsync.log \
+          --owner \
+          --group \
+          --chown=${RSYNC_CHOWN} \
           -hi

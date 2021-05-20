@@ -13,9 +13,11 @@ RUN useradd -m -g mirror -c "openSUSE Mirror User" -s /bin/bash mirror
 RUN mkdir -p /srv/pub/opensuse
 RUN chown -R mirror:mirror /srv/pub/opensuse
 
-VOLUME ["/srv/pub/opensuse"]
+VOLUME ["/srv/pub/opensuse", "/var/log/"]
 
 STOPSIGNAL SIGTERM
+
+RUN ln -sf /dev/stdout /var/log/rsync.log
 
 USER mirror:mirror
 
@@ -25,4 +27,5 @@ CMD rsync -rlpt ${RSYNC_USER}@${RSYNC_SERVER}::${RSYNC_MODULE}/opensuse/ /srv/pu
           --delete-excluded \
           --max-delete=4000 \
           --timeout=1800 \
+          --log-file=/var/log/rsync.log \
           -hi

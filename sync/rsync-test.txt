@@ -1,4 +1,0 @@
-+ tumbleweed/
-+ tumbleweed/iso
-+ tumbleweed/iso/README.FIRST
-- *

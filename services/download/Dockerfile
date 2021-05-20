@@ -7,7 +7,7 @@ RUN zypper in -y nginx nginx-module-fancyindex nginx-module-geoip2 nginx-module-
 COPY nginx.conf /etc/nginx/nginx.conf
 COPY fancyindex /srv/www/fancyindex
 
-VOLUME ["/srv/www/fancyindex"]
+VOLUME ["/srv/www/fancyindex", "/var/log/"]
 
 EXPOSE 80 443
 

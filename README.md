@@ -4,31 +4,23 @@ openSUSE Mirror Docker Image
 
 ## About
 
+Run the openSUSE Mirror infrastructure in Docker, Swarm or Kubernetes.
+
 * [Check out the current mirror server list](https://mirrors.opensuse.org/)
 * [Become a mirror](https://en.opensuse.org/openSUSE:Mirror_infrastructure)
 
-## Services
+## Deployment
 
-### download
+To deploy a mirror check the examples in `deploy` folder.
 
-Nginx that act like a download server for mirrored content.
+You will find examples that are almost ready to go,
+just update the configurations and domains as needed.
 
-Similar to [download.opensuse.org](http://download.opensuse.org/)
+## What is inside
 
-### info
+To understand better what services are required to run a mirror,
+their configurations and customizations check `services` folder.
 
-Rsync daemon to allow openSUSE mirror scanner to query information about mirrored content.
+## License
 
-### sync
-
-Rsync client that mirrors the desired content from openSUSE servers.
-
-## Volumes
-
-### /srv/pub/opensuse
-
-This path used by rsync and nginx.
-
-All binaries, RPMs, and repo metadata will live in this location.
-
-> You need to mount the same volume in each service.
+BSD 3-Clause License

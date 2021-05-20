@@ -4,6 +4,11 @@ RUN zypper in -y rsync
 
 COPY rsyncd.conf /etc/rsyncd.conf
 
+RUN groupadd nobody
+RUN useradd -m -g nobody -c "nobody user" -s /bin/bash nobody
+
+VOLUME ["/var/log/"]
+
 EXPOSE 873
 
 STOPSIGNAL SIGTERM

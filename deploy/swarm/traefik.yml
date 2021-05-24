@@ -1,0 +1,54 @@
+version: "3.5"
+
+services:
+  traefik:
+    image: "traefik:v2.4"
+    command:
+      - "--accesslog"
+      - "--log.level=INFO"
+      - "--api=true"
+      - "--api.dashboard=true"
+      - "--providers.docker=true"
+      - "--providers.docker.swarmmode=true"
+      - "--providers.docker.watch=true"
+      - "--providers.docker.exposedbydefault=false"
+      - "--entrypoints.http.address=:80"
+      - "--entrypoints.https.address=:443"
+      - "--entrypoints.rsync.address=:873"
+    ports:
+      - "80:80"
+      - "443:443"
+      - "873:873"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+    networks:
+      - traefik
+    deploy:
+      mode: global
+      # Uncomment to enable Traefil dashboard
+      # labels:
+      #   - "traefik.enable=true"
+      #   - "traefik.http.routers.traefik.rule=Host(`traefik.something.com`)"
+      #   - "traefik.http.routers.traefik.entrypoints=http,https"
+      #   - "traefik.http.routers.traefik.service=api@internal"
+      #   - "traefik.http.services.traefik.loadbalancer.server.port=8088"
+      #   - "traefik.http.routers.traefik.middlewares=auth"
+      #   - "traefik.http.middlewares.auth.basicauth.realm=Traefik Dashboard"
+      #   # CHANGE IT!!!
+      #   # user: admin
+      #   # password: admin
+      #   # generete new password: htpasswd -n admin
+      #   # remember to escale $ with $$
+      #   - "traefik.http.middlewares.auth.basicauth.users=admin:$$apr1$$ILZ9Zo0F$vz.wAAR/fpslYt6JroSDX."
+      placement:
+        constraints:
+          - node.role == manager
+      update_config:
+        parallelism: 1
+        delay: 10s
+      restart_policy:
+        condition: any
+
+networks:
+  traefik:
+    external: true

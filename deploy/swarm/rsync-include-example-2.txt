@@ -1,0 +1,34 @@
+#
+# This will sync Leap, Leap Update and TW
+# but disables some archtectures and test stuff.
+#
+
+- factory
+- history
+
+- distribution/leap/*/iso-devel
+- distribution/leap/*/repo/non-oss/i586
+- distribution/leap/*/repo/non-oss/i686
+- distribution/leap/*/repo/non-oss/ppc
+- distribution/leap/*/repo/non-oss/ppc64le
+- distribution/leap/*/repo/non-oss/s390x
+- distribution/leap/*/repo/oss/i586
+- distribution/leap/*/repo/oss/i686
+- distribution/leap/*/repo/oss/ppc
+- distribution/leap/*/repo/oss/ppc64le
+- distribution/leap/*/repo/oss/s390x
+
+- update/leap/*-test
+
+- update/leap/*/oss/i586
+- update/leap/*/oss/i686
+- update/leap/*/oss/ppc
+- update/leap/*/oss/ppc64le
+- update/leap/*/oss/s390x
+- update/leap/*/non-oss/i586
+- update/leap/*/non-oss/i686
+- update/leap/*/non-oss/ppc
+- update/leap/*/non-oss/ppc64le
+- update/leap/*/non-oss/s390x
+
+- tumbleweed/wsl

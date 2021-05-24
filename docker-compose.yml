@@ -9,7 +9,7 @@ services:
       RSYNC_USER: opensuse
       RSYNC_PASSWORD:
     volumes:
-      - ./test/rsync-test.txt:/etc/rsync-include.txt
+      - ./deploy/swarm/rsync-include-test.txt:/etc/rsync-include.txt
       - .opensuse:/srv/pub/opensuse/
 
   content:

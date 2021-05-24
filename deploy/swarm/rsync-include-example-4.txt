@@ -1,0 +1,9 @@
+#
+# This will sync Leap stable and current, nothing else.
+#
+
++ distribution/
++ distribution/openSUSE-current/**
++ distribution/openSUSE-stable/**
+
+- *

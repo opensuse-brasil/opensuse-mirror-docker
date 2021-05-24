@@ -1,0 +1,8 @@
+#
+# This will sync Leap and Leap Update only,
+# but all versions avalialable.
+#
+
+- factory
+- history
+- tumbleweed

@@ -1,0 +1,53 @@
+#
+# This will sync selected archs and repositories
+# for Leap, Leap Update and TW.
+#
+
++ distribution/
++ distribution/leap/
++ distribution/leap/15.2/
++ distribution/leap/15.2/iso
++ distribution/leap/15.2/iso/**
++ distribution/leap/15.2/live
++ distribution/leap/15.2/live/**
++ distribution/leap/15.2/repo/
++ distribution/leap/15.2/repo/oss/
++ distribution/leap/15.2/repo/oss/noarch
++ distribution/leap/15.2/repo/oss/noarch/**
++ distribution/leap/15.2/repo/oss/x86_64
++ distribution/leap/15.2/repo/oss/x86_64/**
++ distribution/leap/15.3/
++ distribution/leap/15.3/iso
++ distribution/leap/15.3/iso/**
++ distribution/leap/15.3/live
++ distribution/leap/15.3/live/**
++ distribution/leap/15.3/repo/
++ distribution/leap/15.3/repo/oss/
++ distribution/leap/15.3/repo/oss/noarch
++ distribution/leap/15.3/repo/oss/noarch/**
++ distribution/leap/15.3/repo/oss/x86_64
++ distribution/leap/15.3/repo/oss/x86_64/**
++ update/
++ update/leap/
++ update/leap/15.2/
++ update/leap/15.2/oss/
++ update/leap/15.2/oss/noarch
++ update/leap/15.2/oss/noarch/**
++ update/leap/15.2/oss/x86_64
++ update/leap/15.2/oss/x86_64/**
++ update/leap/15.3/
++ update/leap/15.3/oss/
++ update/leap/15.3/oss/noarch
++ update/leap/15.3/oss/noarch/**
++ update/leap/15.3/oss/x86_64
++ update/leap/15.3/oss/x86_64/**
++ tumbleweed/
++ tumbleweed/iso
++ tumbleweed/iso/**
++ tumbleweed/repo/
++ tumbleweed/repo/oss/
++ tumbleweed/repo/oss/noarch
++ tumbleweed/repo/oss/noarch/**
++ tumbleweed/repo/oss/x86_64
++ tumbleweed/repo/oss/x86_64/**
+- *

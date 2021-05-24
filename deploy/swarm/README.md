@@ -10,6 +10,23 @@ Examples file for Swarm deployment
 - Your load balancer/proxy/ingress will be Traefik
 - You have a domain name (eg: `something.com`)
 
+## What will be cloned?
+
+There are some examples called `rsync-include-example-<n>.txt` that you can use,
+but most likely, you want to customize it.
+
+Use the command below to query opensuse servers and understand it better:
+
+```bash
+rsync -h --list-only rsync.opensuse.org::opensuse-full-with-factory/opensuse/
+```
+
+Use the command below to check how much space your `rsync-include.txt` will take:
+
+```bash
+rsync --stats --dry-run -h -rlpt rsync.opensuse.org::opensuse-full-with-factory/opensuse/ --include-from=rsync-include.txt
+```
+
 ## Deployment
 
 ### Create volumes

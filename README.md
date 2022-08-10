@@ -2,6 +2,10 @@
 
 openSUSE Mirror Docker Image
 
+## DEPRECATED
+
+This repository is deprecated, use [mirror-swarm](https://github.com/opensuse-brasil/mirror-swarm) instead.
+
 ## About
 
 Run the openSUSE Mirror infrastructure in Docker, Swarm or Kubernetes.
